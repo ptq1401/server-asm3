@@ -40,6 +40,7 @@ const arrayDomain = ["http://localhost:3000", "http://localhost:3001"];
  if (arrayDomain.includes(origin)) {
  res.setHeader("Access-Control-Allow-Origin", origin);
   }
+   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
