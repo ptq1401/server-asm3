@@ -13,7 +13,7 @@ const orderRouter = require("./routes/order");
 const sessionRouter = require("./routes/session");
 //-----server----------
 const corsOptions = {
-  origin: true,
+  origin: false,
   credentials: true,
 };
 const fileStorage = multer.diskStorage({
@@ -35,12 +35,12 @@ app.use(bodyParser.json());
 app.use(upload.array("files", 5));
 
 app.use((req, res, next) => {
-const arrayDomain = ["http://localhost:3000", "http://localhost:3001"];
-  const origin = req.headers.origin;
- if (arrayDomain.includes(origin)) {
- res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+//const arrayDomain = ["http://localhost:3000", "http://localhost:3001"];
+ // const origin = req.headers.origin;
+// if (arrayDomain.includes(origin)) {
+// res.setHeader("Access-Control-Allow-Origin", origin);
+ // }
+   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
