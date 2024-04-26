@@ -29,6 +29,6 @@ router.post("/login", checkLoginForm, userController.postLogin);
 router.post("/login-admin", checkLoginForm, userController.postLoginAdmin);
 //-----
 router.get("/logout", userController.getLogout);
-router.post("/check-login", userController.getCheckLogin);
+router.get("/check-login", userController.getCheckLogin);
 //---------------------------------------------
 module.exports = router;
