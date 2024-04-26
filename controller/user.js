@@ -67,8 +67,8 @@ exports.postLogin = (req, res, next) => {
           .then((doMatch) => {
             if (doMatch) {
               //----set cookie---
-              res.cookie("user_id", user._id, {httpOnly: true, secure: true });
-              res.cookie("login", true, {httpOnly: true, secure: true });
+              res.cookie("user_id", user._id, {sameSite: 'none', secure: true });
+              res.cookie("login", true, {sameSite: 'none', secure: true });
               return res.send({
                 error: false,
                 user: { name: user.fullName },
@@ -135,8 +135,8 @@ exports.postLoginAdmin = (req, res, next) => {
           .compare(password, user.password)
           .then((doMatch) => {
             if (doMatch) {
-              res.cookie("user_id", user._id, {httpOnly: true, secure: true });
-              res.cookie("login", true, {httpOnly: true, secure: true });
+              res.cookie("user_id", user._id, {sameSite: 'none', secure: true });
+              res.cookie("login", true, {sameSite: 'none', secure: true });
               return res.send({
                 error: false,
               });
