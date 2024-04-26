@@ -97,9 +97,12 @@ exports.postUpdateProduct = (req, res, next) => {
   const { _id, ...update } = req.body;
   Product.findById(_id)
     .then((data) => {
-      console.log(data.name);
-      console.log(update.name);
       data.name = update.name;
+      data.category = update.category;
+      data.long_desc = update.long_desc;
+      data.short_desc = update.short_desc;
+      data.price = update.price;
+      data.quantity = update.quantity;
       return data.save().then(() => res.send({ error: false }));
     })
     .catch((error) => {
