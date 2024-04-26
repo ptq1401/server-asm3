@@ -95,6 +95,7 @@ exports.postUpdateProduct = (req, res, next) => {
     return res.send({ error: true, message: errors.array()[0].msg });
   }
   const { _id, ...update } = req.body;
+  console.log(update);
   Product.findById(req.body._id)
     .then((data) => {
       for (let key in update) {
