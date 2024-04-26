@@ -88,8 +88,8 @@ exports.postLogin = (req, res, next) => {
 };
 
 exports.getLogout = (req, res, next) => {
-  res.clearCookie("user_id");
-  res.clearCookie("login");
+  res.clearCookie("user_id", {sameSite: 'none', secure: true });
+  res.clearCookie("login", {sameSite: 'none', secure: true });
   res.end();
 };
 
