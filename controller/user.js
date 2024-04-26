@@ -94,7 +94,7 @@ exports.getLogout = (req, res, next) => {
 };
 
 exports.getCheckLogin = (req, res, next) => {
-  console.log(req.body)
+  console.log(req.cookies)
   if (!req.cookies.login) return res.send("");
   consoel.log(req.cookies.user_id)
   const _id = req.cookies.user_id;
