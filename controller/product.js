@@ -96,7 +96,7 @@ exports.postUpdateProduct = (req, res, next) => {
   }
   const { _id, ...update } = req.body;
 
-  Product.findById(req.body._id)
+  Product.findOne(_id)
     .then((data) => {
       for (let key in update) {
         console.log(data.key);
