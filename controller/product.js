@@ -14,7 +14,7 @@ exports.postAddProduct = (req, res, next) => {
   }
   files.forEach((cur, index) => {
     const path = cur.path;
-    const imageUrl = "http://localhost:5000/" + path.split("\\").join("/");
+    const imageUrl = "https://server-asm3-e5pk.onrender.com/" + path.split("\\").join("/");
     data[`img${index + 1}`] = imageUrl;
   });
 
