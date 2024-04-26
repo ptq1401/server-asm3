@@ -95,13 +95,11 @@ exports.postUpdateProduct = (req, res, next) => {
     return res.send({ error: true, message: errors.array()[0].msg });
   }
   const { _id, ...update } = req.body;
-console.log(_id);
   Product.findById(_id)
     .then((data) => {
-      console.log(data)
-      for (let key in update) {
-        data.key = update.key;
-      }
+      console.log(data.name);
+      console.log(update.name);
+      data.name = update.name;
       return data.save().then(() => res.send({ error: false }));
     })
     .catch((error) => {
